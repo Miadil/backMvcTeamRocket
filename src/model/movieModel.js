@@ -8,5 +8,9 @@ const findAll = async () => {
         console.error(error)
     }
 }
+const findOne = async (id) => {
+    const [movie] = await db.query('SELECT * FROM movie where id = ?', [id])
+    return movie
+}
 
-module.exports = { findAll }
+module.exports = { findAll, findOne }
